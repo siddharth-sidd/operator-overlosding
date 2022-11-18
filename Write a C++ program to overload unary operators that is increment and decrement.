@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+class complex
+{
+    private:
+      int  a,b;
+    public:
+        void setdata(){
+            cout<<"entre complex number  :"<<endl;
+            cin>>a;            
+            cin>>b;
+            cout<<endl;
+       }
+          void showcomplex(){
+             cout<<"entre complex number is  :"<<endl;
+                      
+             cout<<a<<"+"<<b<<"i"<<endl;
+             }
+        void showdecrement(){
+      cout<<"decrement of complex number is :"<<endl
+                <<a<<" - "<<b<<"i"<<endl; }
+        void showincrement(){
+          cout<<"increment of complex is: "<<endl<<a<<"+"<<b<<"i"<<endl;
+        }
+          complex operator -- ( ){
+            complex  dec;
+              dec.a=--a;
+              dec.b=--b;
+               return dec;  }
+         complex operator++(){
+           complex inc;
+           inc.a=++a;
+           inc.b=++b;
+            return inc;
+        }
+};
+int main()
+{
+    complex c1,c2,c3;
+      c1.setdata();
+      c1.showcomplex();
+      c2=--c1;
+      c3=++c1;
+      c2.showdecrement();
+      c3.showincrement();      
+      
+       return 0;
+}
