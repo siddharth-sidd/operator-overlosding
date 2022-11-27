@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+class complex
+{
+    private:
+       int real;
+       int img;
+    public:
+       void seter(int x ,int y)
+       {
+           real=x;
+           img=y;
+       }
+       void geter()
+       {
+        cout<<real<<"+"<<img<<"i"<<endl;
+        cout<<"..............................."<<endl;
+       }
+       void showdata()
+       {
+        cout<<"sum of both  complex number is  :"<<endl
+        <<real<<"+"<<img<<"i"<<endl;
+        cout<<"....................................";
+       }
+       friend complex operator+(complex a,complex b);
+
+};
+   complex operator+(complex a,complex b )
+   {
+     complex temp;
+       temp.real=a.real+b.real;
+       temp.img=a.img+b.img;
+       return temp;
+   }
+int main()
+{
+    complex c1,c2,c3;
+    c1.seter(2,3);
+    c2.seter(4,5);
+    c1.geter();
+    c2.geter();
+     c3=c1+c2;
+     c3.showdata();
+     return 0;
+}
+
