@@ -1,0 +1,78 @@
+  #include<iostream>
+ #include<stdio.h>
+ using namespace std;
+ class Fraction
+ {
+    private:
+        int num;
+        int den;
+    public:
+        Fraction(int n=0,int m=0)
+        {
+            num=n;
+            den=m;  }
+        friend void operator >>(istream &in , Fraction &i);
+        friend  void operator <<(ostream & out,Fraction &f);
+            Fraction  operator ++(int s)
+        {
+              num++;
+              den++;
+              return (*this); } 
+          Fraction  operator ++()
+        {
+            ++num;
+            ++den;
+            return (*this); } 
+ };
+         void operator >>(istream &in , Fraction &i)
+        {   
+            cout<<"numerator      :";
+            in>>i.num;
+            cout<<endl;
+            cout<<"denominator    :";
+            in>>i.den;  } 
+         void operator <<(ostream & out,Fraction &f)
+          {
+               cout<<f.num<<"/"<<f.den<<endl;  }
+
+
+  int main()
+  {
+      Fraction f1,f2;
+         cout<<"f1    : ";
+         cout<<f1;
+         cout<<endl;
+         cout<<"f2    : ";
+         cout<<f2;
+      cout<<"............................."<<endl;
+      cout<<"entre first fraction value"<<endl;
+        cin>>f1;
+        cout<<endl;
+         cout<<"f1++     :";
+         f1++;
+         cout<<f1;
+         cout<<"++f1     :";
+         ++f1;
+         cout<<f1;
+         cout<<endl;
+      cout<<"entre secound fraction value"<<endl;
+         cin>>f2;
+         f2=++f1;
+         cout<<"f2=++f1 "<<endl;
+         cout<<"f1     :";
+         cout<<f1;
+         cout<<endl;
+         cout<<"f2    :";
+         cout<<f2;
+          f2=f1++;
+          cout<<"f2=f1++ "<<endl;
+         cout<<"f1     :";
+         cout<<f1;
+         cout<<endl;
+         cout<<"f2      :";
+         cout<<f2;
+
+      return 0;
+
+
+}
